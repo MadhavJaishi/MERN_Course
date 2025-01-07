@@ -1,0 +1,13 @@
+Request Methods :
+1. GET - Going for a consultation to get a checkup
+2. PUT - Going to get a new kidney planted
+3. POST - Going to get a kidney replaced
+4. DELETE - Going to get a kidney removed
+
+Status Codes :
+1. 200 - OK
+2. 403 - Unauthorized access
+3. 404 - File Not Found / Route not exist
+4. 411 - Inputs are wrong
+5. 500 - Something went wrong / error
+

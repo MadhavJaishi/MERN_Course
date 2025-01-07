@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finding Interest</title>
+</head>
+<body>
+    <div class="container">
+        <input type="number" id="principal" placeholder="Enter principal amount"> <br></br>
+        <input type="number" id="rate" placeholder="Enter rate percentage"> <br></br>
+        <input type="number" id="time" placeholder="Enter time"> <br></br>
+        <button onclick="CalcInterest()">Calculate Interest</button> <br></br>
+        <div id="ansText"></div>
+    </div>
+</body>
+<script>
+    async function CalcInterest() {
+        let p = document.getElementById("principal").value
+        let r = document.getElementById("rate").value
+        let t = document.getElementById("time").value
+        let response = await fetch("http://localhost:3000/interest?p=" + p + "&r=" + r + "&t=" + t)
+        let ans = await response.json()
+        document.getElementById("ansText").innerText = "Total amount becomes " + ans.total + " with total interest of " + ans.interest
+    }
+</script>
+</html>

@@ -1,0 +1,6 @@
+Converting the password to some gibberish and putting that data in the database is => hashing in authentication.
+
+Hashing vs Encryption
+Hashing is one way whereas Encryption is 2 way.
+Hashing doesn't require a key whereas Encryption requires a key encrypt/decrypt the data
+Encryption if someone has the key and look at the gibberish data, they can get the original data but since hashing has no key and someone looks at the gibberish data, still they can't retrieve the original data.

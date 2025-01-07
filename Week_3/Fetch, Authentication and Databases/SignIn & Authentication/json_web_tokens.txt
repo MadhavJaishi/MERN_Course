@@ -1,0 +1,4 @@
+Json web tokens(JWT)
+JWT converts an object into a very long string which is neither hashed nor protected in any way. So anyone who get that long string, can retrieve the original data.
+It's technically a digital signature. Anyone can see the original output given the signature. Signature can be verified only using the password.
+The token can be stored in the localStorage of the brower which can be seen if - Inspect - Application - localStorage.

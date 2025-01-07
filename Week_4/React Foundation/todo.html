@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+<!-- Learnt DOM - document.createElement(), parent.appendChild(),                   element.setAttribute("x",val), element.children, parent.removeChild()  -->
+
+<body>
+    <div class="container">
+        <input id="title" type="text" placeholder="Enter title"> <br></br>
+        <input id="desc" type="text" placeholder="Enter description"> <br></br>
+        <button onclick="addTodo()">Add todo</button>
+    </div>
+    <div class="container" id="result">
+    </div>
+</body>
+
+<script>
+    let id = 0;
+    function addTodo() {
+        const title = document.getElementById("title").value
+        const desc = document.getElementById("desc").value
+        id += 1
+        let child = createChild(title, desc, id)
+        document.getElementById("result").appendChild(child)
+    }
+    function createChild(title, desc, id) {
+        const p1 = document.createElement("p")
+        p1.innerText = title
+        const p2 = document.createElement("p")
+        p2.innerText = desc
+        const btn = document.createElement("button")
+        btn.innerHTML = "Mark done"
+        btn.setAttribute("onclick", `markDone(${id})`)
+
+        const box = document.createElement("div")
+        box.appendChild(p1)
+        box.appendChild(p2)
+        box.appendChild(btn)
+        
+        box.setAttribute("id", id)
+
+        return box
+    }
+    function markDone(todo) {
+        const parent = document.getElementById(todo)
+        parent.children[2].innerHTML = "Done!"
+        // const parent = document.getElementById(todo).parentElement
+        // parent.removeChild(document.getElementById(todo))
+    }
+    function updateDOMAccToState(state) {
+        let parent = document.getElementById("result")
+        parent.innerHTML = ""
+        for (let i = 0; i < state.length; i++) {
+            while (state[i].id <= id) {
+                state[i].id += 1
+            }
+            const child = createChild(state[i].title, state[i].desc, state[i].id)
+            id = state[i].id
+            parent.appendChild(child)
+        }
+    }
+    window.setInterval(async () => {
+        const res = await fetch("https://sum-server.100xdevs.com/todos")
+        const json = await res.json()
+        updateDOMAccToState(json.todos)
+    }, 5000)
+    // updateDOMAccToState([{
+    //     title: "Go to gym",
+    //     desc: "For being healthy",
+    //     id: 1
+    // },
+    // {
+    //     title: "Go to gym 2",
+    //     desc: "For being healthy",
+    //     id: 2
+    // }])
+</script>
+</html>

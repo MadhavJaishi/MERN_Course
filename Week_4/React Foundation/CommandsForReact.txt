@@ -1,0 +1,17 @@
+In terminal:
+PS C:ReactStructure> npm create vite@latest
+Need to install the following packages:
+  create-vite@5.2.3
+Ok to proceed? (y) y
+√ Project name: ... Proj1
+√ Package name: ... proj
+√ Select a framework: » React
+√ Select a variant: » JavaScript
+
+Scaffolding project in C:\Users\madha\OneDrive\Desktop\MERN Course Hrkirat\Week 4\React Foundation\ReactStructure\Proj1...
+
+Done. Now run:
+
+  cd Proj1
+  npm install
+  npm run dev

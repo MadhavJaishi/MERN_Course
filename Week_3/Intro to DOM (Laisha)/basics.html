@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <form id="loginForm" action="">
+        Enter first name: <input id="first-name" type="text" value="Madhav"> <br> <br> 
+        Enter last name: <input type="text" value="Jaishi"> <br> <br> 
+        <p id="pTag"></p> <br> <br> 
+        <button onClick="myFunc()">Apply changes</button>
+    </form> <br> <br>
+
+</body>
+<script>
+    function myFunc() {
+        var x = document.getElementById("loginForm").elements.length;
+        var y = document.getElementById("loginForm").elements[0].value;
+        // for above code var y - we have a input field with attribute value defined beforehand
+        document.getElementById("pTag").innerHTML = "Found " + x + " elements in the form and first name is " + y;
+    }
+</script>
+<script>
+    const firstName = document.getElementById("")
+    const para = document.createElement("p")
+    para.innerText = "This is a newly created paragraph"
+    document.body.appendChild(para);
+</script>
+</html>

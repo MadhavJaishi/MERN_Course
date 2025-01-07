@@ -1,0 +1,13 @@
+MongoDB lets you create database.
+In each db, it lets you create tables(collections).
+In each table, it lets you dump JSON data.
+It is schema-less.
+It scales well and is a decent choice for most use cases.
+
+Types of db
+1. Graph db
+2. Vector db
+3. SQL db
+4. NoSQL db
+
+Mongoose lets you connect to your db

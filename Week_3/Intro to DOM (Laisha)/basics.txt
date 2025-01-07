@@ -1,0 +1,14 @@
+1.  // Inside body & form tag
+    <input type="text" value="Madhav">
+    <p id="pTag"></p>
+
+    // Inside script tag
+    function myFunc() {
+        var x = document.getElementById("loginForm").elements.length;
+        var y = document.getElementById("loginForm").elements[0].value;
+        // for above code var y - we have a input field with attribute value defined beforehand
+        document.getElementById("pTag").innerHTML = "Found " + x + " elements in the form and first name is " + y;
+    }
+
+2. const para = document.createElement("p")
+   para.innerText = "This is a newly created paragraph"
