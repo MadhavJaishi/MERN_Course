@@ -1,35 +1,27 @@
 const mongoose = require("mongoose")
-const { Schema, model } = mongoose;
+const dotenv = require("dotenv")
+mongoose.connect(process.env.URI);
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true,
         unique: true,
-        trim: true, 
-        lowercase: true,
-        minLength: 3,
-        maxLength: 40,
-    },
-    password: {
-        type: String,
         required: true,
-        minLength: 6,
+    }, 
+    password: {
+        type: String, 
+        required: true,
     },
     firstName: {
         type: String,
         required: true,
-        trim: true,
-        maxLength: 20,
-    }, 
-    lastName: {
-        type: String,
-        required: true,
-        trim: true,
-        maxLength: 20,
     },
+    lastName: {
+        type: String, 
+        required: true,
+    }
 })
-const User = model('User', userSchema);
+const User = new mongoose.Model("User", userSchema);
 module.exports = {
     User,
 }
